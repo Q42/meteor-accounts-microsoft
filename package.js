@@ -11,6 +11,7 @@ Package.onUse(function(api) {
 
   api.use('dburles:eslint');
   api.use('ecmascript');
+  api.use('underscore');
   api.use('accounts-base', ['client', 'server']);
   // Export Accounts (etc) to packages using this one.
   api.imply('accounts-base', ['client', 'server']);
@@ -28,7 +29,5 @@ Package.onTest(function(api) {
   api.use('q42:accounts-microsoft');
 
   // Tests will follow soon!
-  api.addFiles([
-    'test/client/dutchman.test.js'
-  ]);
+  api.addFiles([]);
 });
