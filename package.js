@@ -9,7 +9,6 @@ Package.describe({
 Package.onUse(function(api) {
   api.versionsFrom('1.2.1');
 
-  api.use('dburles:eslint');
   api.use('ecmascript');
   api.use('underscore');
   api.use('accounts-base', ['client', 'server']);
