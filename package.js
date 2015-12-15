@@ -15,7 +15,7 @@ Package.onUse(function(api) {
   // Export Accounts (etc) to packages using this one.
   api.imply('accounts-base', ['client', 'server']);
   api.use('accounts-oauth', ['client', 'server']);
-  api.use('q42:microsoft', ['client', 'server']);
+  api.use('q42:microsoft@0.1.0', ['client', 'server']);
 
   api.addFiles('server/autopublish.js', 'server');
   api.addFiles('client/login.js', 'client');
