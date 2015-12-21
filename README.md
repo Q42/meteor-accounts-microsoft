@@ -6,7 +6,7 @@ __A login service for Microsoft accounts__
 ## Getting started
 
 Add the package to meteor
-```
+```javascript
 meteor add q42:accounts-microsoft
 ```
 
@@ -14,11 +14,10 @@ meteor add q42:accounts-microsoft
 
 The usage is pretty much the same as all other account packages for meteor. It's inspired by the official Accounts Google meteor package.
 It goes a little bit something like this:
-```
+```javascript
 Meteor.loginWithMicrosoft({
     requestOfflineToken: true,
-    // Permission scopes are found here: https://msdn.microsoft.com/en-us/library/hh243648.aspx
-    requestPermissions: ['wl.basic']
+    requestPermissions: ['wl.emails'] // Permission scopes are found here: https://msdn.microsoft.com/en-us/library/hh243648.aspx
 }, function(error) {
     if (error) {
         console.error('Login failed:', error.reason || error);
@@ -29,7 +28,31 @@ Meteor.loginWithMicrosoft({
 });
 ```
 
+You can also use the Meteor [accounts-ui](https://atmospherejs.com/meteor/accounts-ui) package so you only have to add;
+```
+{{> loginButtons}}
+```
+to your HTML.
+
+## Options object
+```javascript
+var options = {
+    // Whether or not to fetch a refresh token
+    requestOfflineToken: true,
+    // Permission scopes. 
+    // All possible scopes are found here: https://msdn.microsoft.com/en-us/library/hh243648.aspx
+    requestPermissions: [], 
+    // Whatever paramteres you want to give to the authentication url. 
+    // All possibilities can be found here: // https://msdn.microsoft.com/en-us/library/office/dn659750.aspx
+    loginUrlParameters: [], 
+    loginStyle: "popup" or "redirect",
+    redirectUrl: ""
+}
+```
+
 ## References
+
+[Official meteor documentation](http://docs.meteor.com/#/full/meteor_loginwithexternalservice)
 
 ### OAuth package
 
